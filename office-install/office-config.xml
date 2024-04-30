@@ -7,4 +7,7 @@
   <Updates Enabled="TRUE" />
   <Display Level="None" AcceptEULA="TRUE" />
   <Property Name="AUTOACTIVATE" Value="1"/>
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
+  <Remove All="TRUE">
+  </Remove>
 </Configuration>
