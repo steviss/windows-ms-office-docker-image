@@ -12,3 +12,8 @@ services:
         - .\office-install:C:\office-install
         - .\test:C:\test
         - .\app:C:\app
+    networks:
+      - windows_office_network
+
+networks:
+  windows_office_network:
