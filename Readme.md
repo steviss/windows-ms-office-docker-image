@@ -4,6 +4,10 @@
 
 - To support this image, you need to be running Docker with **Windows Containers**, _not WSL or Linux ones._
 
+# How to access the CMD
+
+Go into your Docker Desktop application, the current iteration of the Docker container will be running, select it, go to exec tab, you should be in the `C:\\office-tools` folder by default. You can run your commands from here.
+
 # Get Process
 
 - Get any process inside of a Windows Docker container
@@ -16,6 +20,16 @@ Check if MS Word Instance is running.
 
 `word.application` is COM Object name.
 
+# Read Logs with Powershell on Windows
+
+```powershell
+powershell Get-Content -path C:\Logs\log.log
+```
+
+All logs can be found in the `%temp%` folder.
+
+Intead of `ls` you use `dir`.
+
 # Installation process
 
 **Please note:**
@@ -26,7 +40,7 @@ Check if MS Word Instance is running.
 
 It will take a **long period** of time to install everything.
 
-Keep in mind the build process will hang on download step and install step.
+Keep in mind the build process will hang on download step and install step. Seriously, it will be long. _45 mins or more._ If you want to check anything, go to the TEMP folder and check the logs.
 
 # Resources / Research
 
