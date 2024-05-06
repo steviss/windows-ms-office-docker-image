@@ -1,7 +1,6 @@
-<Configuration ID="d22a6209-07a9-4ce1-b1f1-f5d0648ab932">
-  <Info Description="ServalIT Install Microsoft Office" />
+<Configuration>
   <Add OfficeClientEdition="64" Channel="PerpetualVL2019">
-    <Product ID="ProPlus2019Volume" PIDKEY="NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP">
+    <Product ID="O365ProPlusRetail">
       <Language ID="en-us" />
       <ExcludeApp ID="Access" />
       <ExcludeApp ID="Groove" />
@@ -10,17 +9,13 @@
       <ExcludeApp ID="OneNote" />
       <ExcludeApp ID="Outlook" />
       <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
     </Product>
   </Add>
-  <Property Name="SharedComputerLicensing" Value="0" />
-  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
-  <Property Name="DeviceBasedLicensing" Value="0" />
-  <Property Name="SCLCacheOverride" Value="0" />
-  <Property Name="AUTOACTIVATE" Value="1" />
-  <Updates Enabled="TRUE" />
-  <RemoveMSI />
-  <AppSettings>
-    <Setup Name="Company" Value="ServalIt" />
-  </AppSettings>
+  <Updates Enabled="FALSE" />
   <Display Level="None" AcceptEULA="TRUE" />
+  <Property Name="AUTOACTIVATE" Value="1"/>
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
+  <Remove All="TRUE">
+  </Remove>
 </Configuration>

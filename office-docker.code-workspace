@@ -2,7 +2,7 @@
   "folders": [
     {
       "name": "Office Docker",
-      "path": "./",
+      "path": "./"
     }
   ],
   "extensions": {
@@ -10,13 +10,19 @@
       "dbaeumer.vscode-eslint", //Linter (ESLint)
       "esbenp.prettier-vscode", // Prettier, code formatter
       "redhat.vscode-yaml", //For Docker-Compose Yaml Files
-      "donjayamanne.githistory", //Helps with git, can compare files.
+      "donjayamanne.githistory" //Helps with git, can compare files.
     ]
   },
   "settings": {
     "yaml.schemas": {
-      "https://json.schemastore.org/github-workflow.json": ["*.github/workflows/*.yaml", "*.github/workflows/*.yml"],
-      "https://json.schemastore.org/github-action.json": ["action.yaml", "action.yml"]
+      "https://json.schemastore.org/github-workflow.json": [
+        "*.github/workflows/*.yaml",
+        "*.github/workflows/*.yml"
+      ],
+      "https://json.schemastore.org/github-action.json": [
+        "action.yaml",
+        "action.yml"
+      ]
     },
     "[github-actions-workflow]": {
       "editor.defaultFormatter": "redhat.vscode-yaml"

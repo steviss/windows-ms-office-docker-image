@@ -1,5 +1,5 @@
 # Use the Windows 10 ltsc2019 base image
-FROM mcr.microsoft.com/windows:ltsc2019-amd64 as build
+FROM mcr.microsoft.com/windows:ltsc2019 as build
 
 # Make directory for the Office Deployment Tool
 RUN mkdir C:\\office-install
@@ -13,7 +13,7 @@ ADD https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A
 # Download and extract the Office Deployment Tool
 RUN C:\\office_install.exe /quiet /norestart /extract:C:\\office-install
 
-FROM mcr.microsoft.com/windows:ltsc2019-amd64 AS download
+FROM mcr.microsoft.com/windows:ltsc2019 AS download
 
 WORKDIR C:\\office-install
 
@@ -26,7 +26,7 @@ COPY ./office-install/office-config.xml .
 # Run the Office Deployment Tool to download Office
 RUN setup.exe /download office-config.xml
 
-FROM mcr.microsoft.com/windows:ltsc2019-amd64
+FROM mcr.microsoft.com/windows:ltsc2019
 
 WORKDIR C:\\office-install
 
@@ -42,21 +42,23 @@ RUN mkdir C:\\Windows\\System32\\config\\systemprofile\\Desktop
 COPY ./office-install/office-config.xml .
 
 # Run the Office Deployment Tool to install Office
-RUN setup.exe /configure office-config.xml
+RUN setup.exe /configure C:\\office-install\\office-config.xml
 
 # Set the working directory for the container
 WORKDIR "C:\\"
-
 
 # Create test directory
 RUN mkdir C:\\test
 
 # Create app directory and copy PowerShell script
 RUN mkdir C:\\app
-COPY ./app/keep_container_alive.ps1 C:\\app\\
+
+RUN ["powershell", "-Command", "new-object -comobject word.application"]
+
+COPY ./app/keep_container_alive.ps1 "C:\\app\\"
 
 # Set execution policy to allow script execution
-RUN powershell.exe Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+RUN ["powershell", "Set-ExecutionPolicy", "-ExecutionPolicy", "Bypass", "-Scope", "Process", "-Force"]
 
 # Run PowerShell script to keep the container running
-CMD ["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "C:\\app\\keep_container_alive.ps1"]
+CMD ["powershell", "-ExecutionPolicy", "Bypass", "-File", "C:\\app\\keep_container_alive.ps1"]
