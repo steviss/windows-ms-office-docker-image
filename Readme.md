@@ -2,7 +2,7 @@
 
 - If you want to create a custom config, please visit this page: https://config.office.com/
 
-- To support this image, you need to be running Docker with **Windows Containers**, _not WSL or Linux ones._
+- To support this image, you _have_ to to run Docker with **Windows Containers**, _not WSL or Linux ones._
 
 # How to access the CMD
 
@@ -56,3 +56,6 @@ Keep in mind the build process will hang on download step and install step. Seri
 - https://stackoverflow.com/questions/32612650/how-to-get-docker-compose-to-always-re-create-containers-from-fresh-images
 - https://stackoverflow.com/questions/1006923/automating-office-via-windows-service-on-server-2008/1680214#1680214
 - https://learn.microsoft.com/en-us/deployoffice/overview-office-deployment-tool#install-microsoft-365-apps
+- https://www.sharepointdiary.com/2022/02/read-text-file-in-powershell.html
+- https://answers.microsoft.com/en-us/msoffice/forum/all/error-code-0-2031-17002/7db16daa-c78c-4faf-a958-d90984ad4517
+- https://hub.docker.com/_/microsoft-windows
